@@ -29,10 +29,10 @@ const addBookComp = ({ navigation }) => {
   const { addBook } = BooksContext;
   //uncomment for redux
   // const dispatch = useDispatch();
+
   const showActionSheet = () => {
     actionSheet.current.show();
   };
-
   const getImageFromRoll = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -62,7 +62,6 @@ const addBookComp = ({ navigation }) => {
     addBook({ ...data, authors: data?.authors?.split(","), imageLinks: { smallThumbnail: image } });
     navigation.navigate("Home");
   };
-
   return (
     <SafeAreaView style={styles.form}>
       {showCamera && (
@@ -72,17 +71,11 @@ const addBookComp = ({ navigation }) => {
       )}
       <ActionSheet
         ref={actionSheet}
-        // title={"Which one do you like ?"}
         options={[
           <Text>Pick Image from Gallery</Text>,
-
           <Text>Take Image from camera</Text>,
-
-          <Text useNativeDriver={true} color={Colors.RED}>
-            Cancel
-          </Text>,
+          <Text color={Colors.RED}>Cancel</Text>,
         ]}
-        useNativeDriver={true}
         cancelButtonIndex={2}
         destructiveButtonIndex={1}
         onPress={index => {
@@ -90,7 +83,6 @@ const addBookComp = ({ navigation }) => {
             (async () => {
               if (Platform.OS !== "web") {
                 const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-
                 if (status === "denied") {
                   alert("Sorry, we need camera roll permissions to make this work change from settings please");
                 } else {
@@ -112,7 +104,6 @@ const addBookComp = ({ navigation }) => {
           }
         }}
       />
-
       <View>
         <InputField
           control={control}

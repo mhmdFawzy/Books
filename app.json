@@ -15,12 +15,12 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-   "bundleIdentifier": "com.yourcompany.books",
+      "bundleIdentifier": "com.yourcompany.books",
       "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
-   "package": "com.yourcompany.books",
+      "package": "com.yourcompany.books",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
