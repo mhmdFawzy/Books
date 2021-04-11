@@ -155,7 +155,6 @@ const addBookComp = ({ navigation }) => {
             }
           }}
         />
-        {errors.imageLinks && <Text style={styles.error}>This Field is required.</Text>}
         <InputField
           control={control}
           type="input"
@@ -174,7 +173,6 @@ const addBookComp = ({ navigation }) => {
           inputStyle={styles.input}
           name="description"
         />
-        {errors.description && <Text style={styles.error}>This Field is required.</Text>}
         <InputField
           control={control}
           type="input"
@@ -183,11 +181,6 @@ const addBookComp = ({ navigation }) => {
           inputStyle={styles.input}
           name="authors"
         />
-        {errors.authors ? (
-          <Text style={styles.error}>This Field is required.</Text>
-        ) : (
-          <Text style={styles.disclaimer}>Seperate authors by ,</Text>
-        )}
         <InputField
           control={control}
           type="input"
@@ -197,7 +190,6 @@ const addBookComp = ({ navigation }) => {
           name="publishedDate"
           date={true}
         />
-        {errors.publishedDate && <Text style={styles.error}>This Field is required.</Text>}
         <RedBtn to="AddBook" onPress={handleSubmit(onSubmit)}>
           <Text>Add Book</Text> <Ionicons name="add-sharp" size={16} color={Colors.WHITE} />
         </RedBtn>
